@@ -109,6 +109,40 @@ div.figure p.caption {
 /* reStructuredText settings                                                 */
 
 
+/* -- special classes ------------------------------------------------------- */
+
+
+img.align-left,
+div.align-left,
+object.align-left {
+	clear: left;
+	float: left;
+	margin-right: 1rem;
+}
+
+img.align-right,
+div.align-right,
+object.align-right {
+	clear: right;
+	float: right;
+	margin-left: 1rem;
+}
+
+img.align-center,
+div.align-center,
+object.align-center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.titleless p.topic-title,
+div.titleless p.sidebar-title,
+div.titleless p.admonition-title {
+	display: none;
+}
+
+
 /* -- figures --------------------------------------------------------------- */
 
 div.figure {
@@ -118,42 +152,6 @@ div.figure {
 	background-color: #f8f8f4;
 }
 
-img.align-left,
-.figure.align-left,
-object.align-left {
-	clear: left;
-	float: left;
-	margin-right: 1rem;
-}
-
-img.align-right,
-.figure.align-right,
-object.align-right {
-	clear: right;
-	float: right;
-	margin-left: 1rem;
-}
-
-img.align-center,
-.figure.align-center,
-object.align-center {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.align-left {
-	text-align: left;
-}
-
-.align-center {
-	text-align: center;
-}
-
-.align-right {
-	text-align: right;
-}
-
 div.figure img {
 	object-fit: contain;
 }
@@ -161,7 +159,8 @@ div.figure img {
 
 /* -- sidebars -------------------------------------------------------------- */
 
-div.sidebar {
+div.sidebar,
+blockquote.sidebar {
 	margin: 0.5em 0rem 0.5em 1rem;
 	border: 1px solid #cccccc;
 	padding: 0 0.5rem 0 0.5rem;
@@ -169,11 +168,23 @@ div.sidebar {
 	width: 40%;
 	float: right;
 }
-div.sidebar.narrow {
+div.sidebar.narrow,
+blockquote.sidebar.narrow {
 	width: 20%;
 }
-div.sidebar.wide {
+div.sidebar.wide,
+blockquote.sidebar.wide {
 	width: 60%;
+}
+div.sidebar.align-left,
+blockquote.sidebar.align-left {
+	/* if pushed left, swap right/left margin values */
+	margin: 0.5em 1rem 0.5em 1rem;
+	float: left;
+}
+div.admonition.sidebar {
+	/* support a ":class: sidebar" for admonitions (to shrink them) */
+	margin: 0.5em 1rem 0.5em 0rem;
 }
 
 p.sidebar-title {
@@ -296,7 +307,7 @@ blockquote {
 }
 
 blockquote.highlights {
-	background-color: #f8f8f4;
+	background-color: #fefefe;
 }
 
 blockquote.epigraph {
@@ -311,12 +322,37 @@ blockquote.epigraph p:not(.attribution) {
 blockquote.pull-quote {
 	padding: 1em 5rem 1em 5rem;
 	background-color: #fefefe;
+	font-weight: bold;
+	font-style: oblique;
+	font-size: 2rem;
+	color: #a00000;
+	position: relative;
+}
+blockquote.pull-quote:before {
+	font-family: "Open Sans", Ariel, Helvetica, sans-serif;
+	content: "\0201c";
+	font-size: 8rem;
+	color: #f2dede;
+	position: absolute;
+	left: -0.000em;
+	top: 0.0em;
+}
+blockquote.pull-quote:after {
+	font-family: "Open Sans", Ariel, Helvetica, sans-serif;
+	content: "\0201d";
+	font-size: 8rem;
+	color: #f2dede;
+	position: absolute;
+	right: 0.250em;
+	bottom: -0.5em;
 }
 blockquote.pull-quote p {
+	display: block;
 	font-size: 1rem;
 	color: #222222;
 }
 blockquote.pull-quote p:not(.attribution) {
+	display: inline;
 	font-weight: bold;
 	font-style: oblique;
 	font-size: 2rem;
@@ -679,45 +715,152 @@ h6 a:link {
 
 
 /* -- Code Syntax Highlighting ----------------------------------------------*/
-/* Derived from 'rst2html --syntax-highlighting=long' */
 
-/* line numbers */
-pre.code .ln {
-	color: grey;
-}
+/* formats for <PRE class="code"> */
 
-pre.code,
-code {
-	background-color: #f8f8f4;
-}
+/* lovelace */
+.code  { background: #ffffff; } /*  */
+.code .comment { color: #888888; font-style: italic } /* .c */
+.code .comment.hashbang { color: #287088; font-style: italic } /* .ch */
+.code .comment.multiline { color: #888888; font-style: italic } /* .cm */
+.code .comment.preproc { color: #289870 } /* .cp */
+.code .comment.preprocfile { color: #888888; font-style: italic } /* .cpf */
+.code .comment.single { color: #888888; font-style: italic } /* .c1 */
+.code .comment.special { color: #888888; font-style: italic } /* .cs */
+.code .error { background-color: #a848a8 } /* .err */
+.code .generic.deleted { color: #c02828 } /* .gd */
+.code .generic.emph { font-style: italic } /* .ge */
+.code .generic.error { color: #c02828 } /* .gr */
+.code .generic.heading { color: #666666 } /* .gh */
+.code .generic.inserted { color: #388038 } /* .gi */
+.code .generic.output { color: #666666 } /* .go */
+.code .generic.prompt { color: #444444 } /* .gp */
+.code .generic.strong { font-weight: bold } /* .gs */
+.code .generic.subheading { color: #444444 } /* .gu */
+.code .generic.traceback { color: #2838b0 } /* .gt */
+.code .highlight { background-color: #ffffcc } /* .hll */
+.code .keyword { color: #2838b0 } /* .k */
+.code .keyword.constant { color: #444444; font-style: italic } /* .kc */
+.code .keyword.declaration { color: #2838b0; font-style: italic } /* .kd */
+.code .keyword.namespace { color: #2838b0 } /* .kn */
+.code .keyword.pseudo { color: #2838b0 } /* .kp */
+.code .keyword.reserved { color: #2838b0 } /* .kr */
+.code .keyword.type { color: #2838b0; font-style: italic } /* .kt */
+.code .literal.number.bin { color: #444444 } /* .mb */
+.code .literal.number { color: #444444 } /* .m */
+.code .literal.number.float { color: #444444 } /* .mf */
+.code .literal.number.hex { color: #444444 } /* .mh */
+.code .literal.number.integer { color: #444444 } /* .mi */
+.code .literal.number.integer.long { color: #444444 } /* .il */
+.code .literal.number.oct { color: #444444 } /* .mo */
+.code .literal.string.affix { color: #444444 } /* .sa */
+.code .literal.string.backtick { color: #b83838 } /* .sb */
+.code .literal.string.char { color: #a848a8 } /* .sc */
+.code .literal.string { color: #b83838 } /* .s */
+.code .literal.string.delimiter { color: #b85820 } /* .dl */
+.code .literal.string.doc { color: #b85820; font-style: italic } /* .sd */
+.code .literal.string.double { color: #b83838 } /* .s2 */
+.code .literal.string.escape { color: #709030 } /* .se */
+.code .literal.string.heredoc { color: #b83838 } /* .sh */
+.code .literal.string.interpol { color: #b83838; text-decoration: underline } /* .si */
+.code .literal.string.other { color: #a848a8 } /* .sx */
+.code .literal.string.regex { color: #a848a8 } /* .sr */
+.code .literal.string.single { color: #b83838 } /* .s1 */
+.code .literal.string.symbol { color: #b83838 } /* .ss */
+.code .name.attribute { color: #388038 } /* .na */
+.code .name.builtin { color: #388038 } /* .nb */
+.code .name.builtin.pseudo { color: #388038; font-style: italic } /* .bp */
+.code .name.class { color: #287088 } /* .nc */
+.code .name.constant { color: #b85820 } /* .no */
+.code .name.decorator { color: #287088 } /* .nd */
+.code .name.entity { color: #709030 } /* .ni */
+.code .name.exception { color: #908828 } /* .ne */
+.code .name.function { color: #785840 } /* .nf */
+.code .name.function.magic { color: #b85820 } /* .fm */
+.code .name.label { color: #289870 } /* .nl */
+.code .name.namespace { color: #289870 } /* .nn */
+.code .name.tag { color: #2838b0 } /* .nt */
+.code .name.variable.class { color: #b04040 } /* .vc */
+.code .name.variable { color: #b04040 } /* .nv */
+.code .name.variable.global { color: #908828 } /* .vg */
+.code .name.variable.instance { color: #b04040 } /* .vi */
+.code .name.variable.magic { color: #b85820 } /* .vm */
+.code .operator { color: #666666 } /* .o */
+.code .operator.word { color: #a848a8 } /* .ow */
+.code .punctuation { color: #888888 } /* .p */
+.code .text.whitespace { color: #a89028 } /* .w */
 
-pre.code .comment,
-code .comment {
-	color: #5C6576;
-}
-pre.code .keyword,
-code .keyword {
-	color: #3B0D06;
-	font-weight: bold;
-}
 
-pre.code .literal.string,
-code .literal.string {
-	color: #0C5404;
-}
+/* Formats for <CODE> elements (inline) */
 
-pre.code .name.builtin,
-code .name.builtin {
-	color: #352B84;
-}
-
-pre.code .deleted,
-code .deleted {
-	background-color: #DEB0A1;
-}
-
-pre.code .inserted,
-code .inserted {
-	background-color: #A3D289;
-}
-
+/* lovelace */
+code  { background: #ffffff; } /*  */
+code .comment { color: #888888; font-style: italic } /* .c */
+code .comment.hashbang { color: #287088; font-style: italic } /* .ch */
+code .comment.multiline { color: #888888; font-style: italic } /* .cm */
+code .comment.preproc { color: #289870 } /* .cp */
+code .comment.preprocfile { color: #888888; font-style: italic } /* .cpf */
+code .comment.single { color: #888888; font-style: italic } /* .c1 */
+code .comment.special { color: #888888; font-style: italic } /* .cs */
+code .error { background-color: #a848a8 } /* .err */
+code .generic.deleted { color: #c02828 } /* .gd */
+code .generic.emph { font-style: italic } /* .ge */
+code .generic.error { color: #c02828 } /* .gr */
+code .generic.heading { color: #666666 } /* .gh */
+code .generic.inserted { color: #388038 } /* .gi */
+code .generic.output { color: #666666 } /* .go */
+code .generic.prompt { color: #444444 } /* .gp */
+code .generic.strong { font-weight: bold } /* .gs */
+code .generic.subheading { color: #444444 } /* .gu */
+code .generic.traceback { color: #2838b0 } /* .gt */
+code .highlight { background-color: #ffffcc } /* .hll */
+code .keyword { color: #2838b0 } /* .k */
+code .keyword.constant { color: #444444; font-style: italic } /* .kc */
+code .keyword.declaration { color: #2838b0; font-style: italic } /* .kd */
+code .keyword.namespace { color: #2838b0 } /* .kn */
+code .keyword.pseudo { color: #2838b0 } /* .kp */
+code .keyword.reserved { color: #2838b0 } /* .kr */
+code .keyword.type { color: #2838b0; font-style: italic } /* .kt */
+code .literal.number.bin { color: #444444 } /* .mb */
+code .literal.number { color: #444444 } /* .m */
+code .literal.number.float { color: #444444 } /* .mf */
+code .literal.number.hex { color: #444444 } /* .mh */
+code .literal.number.integer { color: #444444 } /* .mi */
+code .literal.number.integer.long { color: #444444 } /* .il */
+code .literal.number.oct { color: #444444 } /* .mo */
+code .literal.string.affix { color: #444444 } /* .sa */
+code .literal.string.backtick { color: #b83838 } /* .sb */
+code .literal.string.char { color: #a848a8 } /* .sc */
+code .literal.string { color: #b83838 } /* .s */
+code .literal.string.delimiter { color: #b85820 } /* .dl */
+code .literal.string.doc { color: #b85820; font-style: italic } /* .sd */
+code .literal.string.double { color: #b83838 } /* .s2 */
+code .literal.string.escape { color: #709030 } /* .se */
+code .literal.string.heredoc { color: #b83838 } /* .sh */
+code .literal.string.interpol { color: #b83838; text-decoration: underline } /* .si */
+code .literal.string.other { color: #a848a8 } /* .sx */
+code .literal.string.regex { color: #a848a8 } /* .sr */
+code .literal.string.single { color: #b83838 } /* .s1 */
+code .literal.string.symbol { color: #b83838 } /* .ss */
+code .name.attribute { color: #388038 } /* .na */
+code .name.builtin { color: #388038 } /* .nb */
+code .name.builtin.pseudo { color: #388038; font-style: italic } /* .bp */
+code .name.class { color: #287088 } /* .nc */
+code .name.constant { color: #b85820 } /* .no */
+code .name.decorator { color: #287088 } /* .nd */
+code .name.entity { color: #709030 } /* .ni */
+code .name.exception { color: #908828 } /* .ne */
+code .name.function { color: #785840 } /* .nf */
+code .name.function.magic { color: #b85820 } /* .fm */
+code .name.label { color: #289870 } /* .nl */
+code .name.namespace { color: #289870 } /* .nn */
+code .name.tag { color: #2838b0 } /* .nt */
+code .name.variable.class { color: #b04040 } /* .vc */
+code .name.variable { color: #b04040 } /* .nv */
+code .name.variable.global { color: #908828 } /* .vg */
+code .name.variable.instance { color: #b04040 } /* .vi */
+code .name.variable.magic { color: #b85820 } /* .vm */
+code .operator { color: #666666 } /* .o */
+code .operator.word { color: #a848a8 } /* .ow */
+code .punctuation { color: #888888 } /* .p */
+code .text.whitespace { color: #a89028 } /* .w */
