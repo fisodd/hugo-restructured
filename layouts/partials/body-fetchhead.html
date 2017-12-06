@@ -1,0 +1,21 @@
+{{ $.Scratch.Set "ReSTstyleColor" "" }}
+{{ $hero_color := .Param "hero_color" | default .Site.Params.hero_color }}
+{{ if $hero_color }}
+  {{ $.Scratch.Set "ReSTstyleColor" (printf "color: %s" $hero_color) }}
+{{ end }}
+{{ $style_color := $.Scratch.Get "ReSTstyleColor" }}
+
+{{ $.Scratch.Set "ReSTstyleBackground" "" }}
+{{ $hero_image := .Param "hero_image" | default .Site.Params.hero_image }}
+{{ if $hero_image }}
+  {{ $hero_image := (trim $hero_image "/") | absURL }}
+  {{ $.Scratch.Set "ReSTstyleBackground" (printf "background: url('%s'); background-size: cover;" $hero_image) }}
+{{ end }}
+
+{{ $hero_grade := .Param "hero_grade" | default .Site.Params.hero_grade }}
+{{ if $hero_grade }}
+  {{ $.Scratch.Set "ReSTstyleBackground" (printf "%s;" $hero_grade) }}
+{{ end }}
+
+{{ $style_spec := (printf "%s %s" ($.Scratch.Get "ReSTstyleBackground") ($.Scratch.Get "ReSTstyleColor")) }}
+{{ $.Scratch.Set "ReSTheadStyle" $style_spec }}

@@ -1,0 +1,7 @@
+{{ partial "body-fetchhead.html" . }}
+<footer style="{{ $.Scratch.Get "ReSTheadStyle" | safeCSS }}">
+  <hr class="docutils">
+  <div>
+    &copy; {{ now.Format "2006" }} <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+  </div>
+</footer>

@@ -1,0 +1,10 @@
+{{ $.Scratch.Set "ReSTedgeStyle" "" }}
+{{ $edge_image := .Param "edge_image" | default .Site.Params.edge_image }}
+{{ if $edge_image }}
+  {{ $edge_image := (trim $edge_image "/") | absURL }}
+  {{ $.Scratch.Set "ReSTedgeStyle" (printf "background-image: url('%s');" $edge_image) }}
+{{ end }}
+{{ $edge_grade := .Param "edge_grade" | default .Site.Params.edge_grade }}
+{{ if $edge_grade }}
+  {{ $.Scratch.Set "ReSTedgeStyle" $edge_grade }}
+{{ end }}

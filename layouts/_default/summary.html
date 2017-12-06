@@ -1,0 +1,14 @@
+{{ $dateFormat := default "Jan 2, 2006" (index .Site.Params "date_format") }}
+<section>
+  <hr class="marginless">
+  <h2><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h2>
+  <ul><li><em><time datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}'>{{ .Date.Format $dateFormat }}</time> {{ if or (.Params.author) (default .Site.Params.author) }}by {{ .Params.author | default .Site.Params.author }}{{ end }}{{ if or (.Params.categories) (.Params.tags) }}, {{ partial "summ-terms.html" . }}{{ end }}</em></li></ul>
+  {{ if isset .Params "description" }}
+  <p><strong><em>Description:</em></strong> {{ .Params.description }}</p>
+  {{ else }}
+  <p><strong><em>Extract:</em></strong> {{ .Summary }}{{ if .Truncated }} [...]{{ end }}</p>
+  {{ end }}
+  <p style="margin-bottom: 0;"><a href='{{ .Permalink }}'>Read ...</a></p>
+</section>
+
+

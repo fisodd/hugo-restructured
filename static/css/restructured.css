@@ -1,0 +1,723 @@
+/* Base CSS for theme
+ * -- loosely derived from html4css1.css from Docutils
+ *
+ * ToDo:
+ * -- wide <PRE> blocks in footnotes create elements wider than page
+ *   -- not sure this is readily solved in CSS, but avoidable in reST...
+ */
+
+
+/*****************************************************************************/
+/* Colors:
+ * foreground: #222222
+ * background: #fefefe
+ * background for sidebars: #f8f8f4
+ * Borders: #cccccc, and #e4e4e4 for a ligher border
+ * Yellow text: #fbe54e hsl(yellow/52, 96%, 65%)
+ * Rubric: #a00000
+ * System Message: #f2f2a6 (yellow, 75% saturation, 80% lightness)
+ * ... or #f5f5a3 (80%sat, 80%light)
+ */
+
+
+
+/*****************************************************************************/
+/* Very basic settings                                                       */
+
+@charset "UTF-8";
+
+body {
+	font-family: "Open Sans", Ariel, Helvetica, sans-serif;
+}
+
+section,
+article header {
+	background-color: #fefefe;
+	color: #222222;
+}
+
+
+/*****************************************************************************/
+/* Simple 'responsive' behavior                                              */
+
+html {
+	font-size: 10px;
+}
+
+@media (min-width: 400px) {
+	html {
+		font-size: 12px;
+	}
+}
+
+@media (min-width: 800px) {
+	html {
+		font-size: 16px;
+	}
+}
+
+@media (min-width: 900px) {
+	article {
+		padding-left: 10%;
+	}
+	section,
+	article header {
+		width: 88%;
+		padding: 0.5em 0.5rem 0.5em 0.5rem;
+	}
+}
+
+@media (min-width: 1300px) {
+	article {
+		padding-left: 20%;
+	}
+	section,
+	article header {
+		width: 75%;
+	}
+}
+
+
+/*****************************************************************************/
+/* Basic Sizes                                                               */
+
+/* Larger type for most stuff */
+p,
+div.section > ol.simple > li,
+div.section > ul.simple > li {
+	/* Note: "ul.simple" are the non-intented bullet lists */
+	font-size: 1.5rem;
+	line-height: 1.5;
+}
+
+/* Keep type smaller for tightly formatted parts */
+li p,
+dd p,
+table p,
+blockquote p,
+table.footnote p,
+div.sidebar p,
+div.legend p,
+div.figure p.caption {
+	width: auto;
+	font-size: 1.0rem;
+	line-height: 1.25;
+}
+
+
+/*****************************************************************************/
+/* reStructuredText settings                                                 */
+
+
+/* -- figures --------------------------------------------------------------- */
+
+div.figure {
+	margin: 0.5em 0rem 0.5em 0rem;
+	border: 1px solid #cccccc;
+	padding: 0.5em 0.5rem 0.5em 0.5rem;
+	background-color: #f8f8f4;
+}
+
+img.align-left,
+.figure.align-left,
+object.align-left {
+	clear: left;
+	float: left;
+	margin-right: 1rem;
+}
+
+img.align-right,
+.figure.align-right,
+object.align-right {
+	clear: right;
+	float: right;
+	margin-left: 1rem;
+}
+
+img.align-center,
+.figure.align-center,
+object.align-center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.align-left {
+	text-align: left;
+}
+
+.align-center {
+	text-align: center;
+}
+
+.align-right {
+	text-align: right;
+}
+
+div.figure img {
+	object-fit: contain;
+}
+
+
+/* -- sidebars -------------------------------------------------------------- */
+
+div.sidebar {
+	margin: 0.5em 0rem 0.5em 1rem;
+	border: 1px solid #cccccc;
+	padding: 0 0.5rem 0 0.5rem;
+	background-color: #f8f8f4;
+	width: 40%;
+	float: right;
+}
+div.sidebar.narrow {
+	width: 20%;
+}
+div.sidebar.wide {
+	width: 60%;
+}
+
+p.sidebar-title {
+	padding-top: 0.5em;
+	font-weight: bold;
+}
+
+/* -- topics ---------------------------------------------------------------- */
+
+div.topic {
+	margin: 0.5em 0rem 0.5em 0rem;
+	border: 1px solid #cccccc;
+	padding: 0.5em 0.5rem 0.5em 0.5rem;
+}
+
+p.topic-title {
+	text-align: center;
+	font-size: 1.25rem;
+	font-weight: bold;
+	margin-top: 1rem;
+}
+
+ul.auto-toc {
+	list-style-type: none
+}
+
+
+/* -- admonitions ----------------------------------------------------------- */
+
+div.admonition {
+	margin: 0.5em 0rem 0.5em 0rem;
+	border: 1px solid #cccccc;
+	padding: 0.5em 0.5rem 0.5em 0.5rem;
+}
+
+div.admonition dt {
+	font-weight: bold;
+}
+
+div.admonition dl {
+	margin-bottom: 0;
+}
+
+p.admonition-title {
+	margin: 0 1rem 0.5em 0;
+	font-weight: bold;
+	text-align: center;
+}
+div.danger p.admonition-title {
+	color: #f00000;
+	text-transform: uppercase;
+}
+div.caution p.admonition-title {
+	color: #a00000;
+}
+div.attention p.admonition-title {
+	color: #d00000;
+}
+div.error p.admonition-title {
+	color: #c00000;
+}
+div.warning p.admonition-title {
+	color: #b00000;
+}
+div.important p.admonition-title {
+	color: #a00000;
+}
+div.note p.admonition-title {
+	color: #900000;
+}
+div.hint p.admonition-title {
+	color: #800000;
+}
+div.tip p.admonition-title {
+	color: #700000;
+}
+p.admonition-title {
+	color: #400000;
+}
+
+div.body p.centered {
+	text-align: center;
+}
+
+
+/* -- quotes and messages --------------------------------------------------- */
+
+.system-message {
+	background-color: #f2f2a6;
+	padding: 0.25em 0.25rem 0.25em 0.25rem;
+	border: 3px solid red;
+}
+
+not(blockquote) .line-block {
+	margin: 0.5em 0rem 0.5em 0rem;
+	border: 1px solid #cccccc;
+	padding: 0.5em 0.5rem 0.5em 0.5rem;
+	background-color: #f8f8f4;
+	display: block;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.line-block .line-block {
+	/* indented block within a block, only need the indent... */
+	margin: 0;
+	border: none;
+	padding: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}
+
+blockquote {
+	font-family: "Open Sans Condensed", Ariel, Helvetica, sans-serif;
+	margin: 0.5em 0rem 0.5em 0rem;
+	border: 1px solid #cccccc;
+	padding: 0.5em 0.5rem 0.5em 0.5rem;
+	background-color: #f8f8f4;
+}
+
+blockquote.highlights {
+	background-color: #f8f8f4;
+}
+
+blockquote.epigraph {
+	background-color: #fefefe;
+}
+blockquote.epigraph p:not(.attribution) {
+	font-size: 1.5rem;
+	font-style: oblique;
+	color: #a00000;
+}
+
+blockquote.pull-quote {
+	padding: 1em 5rem 1em 5rem;
+	background-color: #fefefe;
+}
+blockquote.pull-quote p {
+	font-size: 1rem;
+	color: #222222;
+}
+blockquote.pull-quote p:not(.attribution) {
+	font-weight: bold;
+	font-style: oblique;
+	font-size: 2rem;
+	color: #a00000;
+}
+
+p.rubric {
+	color: #a00000;
+	margin-top: 2em;
+	font-weight: bold;
+}
+
+
+/* -- code displays --------------------------------------------------------- */
+
+pre {
+	margin: 0.5em 0rem 0.5em 0rem;
+	border: 1px solid #cccccc;
+	padding: 0.5em 0.5rem 0.5em 0.5rem;
+	background-color: #f8f8f4;
+	overflow: auto;
+	overflow-y: hidden;  /* fixes display issues on Chrome browsers */
+	font-family: "Roboto Mono", monospace;
+}
+tt {
+	font-family: "Roboto Mono", monospace;
+}
+
+pre.address {
+	margin: 0 1rem 0 0;
+}
+
+
+/* -- footnotes ------------------------------------------------------------- */
+
+.footnote-reference {
+	vertical-align: super;
+	font-size: 0.75em;
+	line-height: normal;
+}
+
+table.docutils.citation,
+table.docutils.footnote {
+	margin: 0.5em 0rem 0.5em 0rem;
+	border: 1px solid #cccccc;
+	padding: 1em 0.5rem 1em 0.5rem;
+	background-color: #f8f8f4;
+	width: 100%;
+}
+
+
+/* -- tables ---------------------------------------------------------------- */
+
+table.docutils {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	border: 0;
+	border-collapse: collapse;
+	border-top: 1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
+}
+
+table.docutils th {
+	padding: 1px 0.5rem 1px 0.5rem;
+	border-top: 0;
+	border-left: 0;
+	border-right: 0;
+	border-bottom: 1px solid #cccccc;
+}
+table.docutils td {
+	padding: 1px 0.5rem 1px 0.5rem;
+	border-top: 0;
+	border-left: 0;
+	border-right: 0;
+	border-bottom: 1px solid #e4e4e4;
+}
+
+/* Ensure there are no borders for the Docutils-generated tables */
+table.field-list,
+table.field-list td,
+table.field-list th {
+	border: 0 !important;
+}
+/* ... and Docutils generates footnotes as a table */
+/* but since we border the notes, we don't set "none" for the outer table */
+table.footnote td,
+table.footnote th {
+	border: none;
+}
+
+table.citation td {
+	border-bottom: none;
+}
+
+th {
+	text-align: left;
+	padding-right: 0.5rem;
+}
+
+
+/* -- headings -------------------------------------------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: bold;
+	color: #a00000;
+}
+h1 {
+	font-size: 2rem;
+	padding-top: 1em;
+}
+h2 {
+	font-size: 1.5rem;
+	padding-top: 1em;
+}
+h3 {
+	font-size: 1.25rem;
+	padding-top: 1em;
+}
+h4 {
+	font-size: 1.0rem;
+	padding-top: 1em;
+}
+h5 {
+	font-size: 0.875rem;
+	padding-top: 1em;
+}
+h6 {
+	font-size: 0.75rem;
+}
+
+
+/* -- other body styles ----------------------------------------------------- */
+
+div.body p.caption {
+	text-align: inherit;
+}
+
+div.body td {
+	text-align: left;
+}
+
+.field-list ul {
+	padding-left: 1rem;
+}
+
+.first {
+	/* uncomment to force first elements to not have a top margin ...
+	margin-top: 0 !important;
+	... */
+}
+
+ol.arabic {
+	list-style: decimal;
+}
+
+ol.loweralpha {
+	list-style: lower-alpha;
+}
+
+ol.upperalpha {
+	list-style: upper-alpha;
+}
+
+ol.lowerroman {
+	list-style: lower-roman;
+}
+
+ol.upperroman {
+	list-style: upper-roman;
+}
+
+dl {
+	margin-bottom: 1em;
+}
+
+dd p {
+	margin-top: 0px;
+}
+
+dd ul,
+dd table {
+	margin-bottom: 1em;
+}
+
+dd {
+	margin-top: 0.25em;
+	margin-bottom: 1em;
+	margin-left: 2rem;
+}
+
+dl.docutils dt {
+	font-weight: bold
+}
+
+dt:target,
+.highlighted {
+	background-color: #fbe54e;
+}
+
+dl.glossary dt {
+	font-weight: bold;
+	font-size: 1.125em;
+}
+
+.field-list ul {
+	margin: 0;
+	padding-left: 1em;
+}
+
+.field-list p {
+	margin: 0;
+}
+
+.optional {
+	font-size: 1.25em;
+}
+
+.versionmodified {
+	font-style: italic;
+}
+
+.accelerator {
+	text-decoration: underline;
+}
+
+.classifier {
+	font-style: oblique;
+}
+
+abbr,
+acronym {
+	border-bottom: dotted 1px;
+	cursor: help;
+}
+
+
+/*****************************************************************************/
+/* Page Header & Footer                                                      */
+
+header,
+footer {
+	font-family: "Open Sans Condensed", Ariel, Helvetica, sans-serif;
+
+	background: #900000; /* expect this to be overridden in config */
+	color: #fefefe;      /* expect this to be overridden in config */
+}
+
+header {
+	padding-top: 1em;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+footer {
+	clear: both;
+}
+
+div.top-banner > div.top-title {
+	font-size: 2rem;
+	font-weight: bold;
+	padding-top: 2em;
+	padding-bottom: 3em;
+	text-align: center;
+}
+
+header > nav {
+	padding-top: 2em;
+}
+header > nav > ul {
+	list-style-type: none;
+	font-weight: bold;
+	padding: 0;
+	margin: 0;
+}
+header > nav > ul > li {
+	float: left;
+	padding-right: 2rem;
+	letter-spacing: 0.125em;
+}
+header > nav::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+header > nav li > a:before {
+	content: "\0003c";
+	visibility: hidden;
+}
+header > nav li > a:after {
+	content: ">";
+	visibility: hidden;
+}
+header > nav li > a.active:before {
+	content: "\0003c";
+	visibility: visible;
+}
+header > nav li > a.active:after {
+	content: ">";
+	visibility: visible;
+}
+
+header > nav a:link,
+header > nav a:visited,
+footer a:link,
+footer a:visited {
+	text-decoration: none;
+}
+header > nav a:link,
+header > nav a:visited {
+	font-size: 1.25rem;
+}
+header > nav a {
+	display: block;
+	vertical-align: baseline;
+	text-transform: uppercase;
+}
+
+header > nav a img {
+	height: 5rem;
+	position: relative;
+	max-width: 100%;
+	top: -1.5rem;
+}
+
+hr.marginless,
+footer hr,
+article header hr {
+	margin: 0;
+}
+
+
+
+/*****************************************************************************/
+/* Flourishes                                                                */
+
+
+/* -- Reduce the visibility of links in some situations ---------------------*/
+
+a:link,
+a:visited {
+	/* Do not recolor links in the default blue-link coloration */
+	color: inherit;
+}
+
+h1 a:link,
+h2 a:link,
+h3 a:link,
+h4 a:link,
+h5 a:link,
+h6 a:link {
+	/* Do not underline the links that are in H1 to H6 elements */
+	text-decoration: none;
+}
+
+
+/* -- Code Syntax Highlighting ----------------------------------------------*/
+/* Derived from 'rst2html --syntax-highlighting=long' */
+
+/* line numbers */
+pre.code .ln {
+	color: grey;
+}
+
+pre.code,
+code {
+	background-color: #f8f8f4;
+}
+
+pre.code .comment,
+code .comment {
+	color: #5C6576;
+}
+pre.code .keyword,
+code .keyword {
+	color: #3B0D06;
+	font-weight: bold;
+}
+
+pre.code .literal.string,
+code .literal.string {
+	color: #0C5404;
+}
+
+pre.code .name.builtin,
+code .name.builtin {
+	color: #352B84;
+}
+
+pre.code .deleted,
+code .deleted {
+	background-color: #DEB0A1;
+}
+
+pre.code .inserted,
+code .inserted {
+	background-color: #A3D289;
+}
+

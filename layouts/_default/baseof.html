@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="{{ .Lang }}">
+  <head>
+    <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+    <link rel="canonical" href="{{ .Permalink }}">
+    {{ partial "head-style.html" . }}
+    {{ partial "head-meta.html" . }}
+    {{ partial "head-rss.html" . }}
+  </head>
+  <body>
+    {{ partial "body-header.html" . }}
+    {{ block "main" . }}
+    {{ end }}
+    {{ partial "body-footer.html" . }}
+  </body>
+</html>
