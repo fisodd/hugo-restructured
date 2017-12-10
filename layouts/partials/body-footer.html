@@ -1,7 +1,10 @@
 {{ partial "body-fetchhead.html" . }}
-<footer style="{{ $.Scratch.Get "ReSTheadStyle" | safeCSS }}">
-  <hr class="docutils">
-  <div>
+<footer class="restructured-footer" style="{{ $.Scratch.Get "ReSTheadStyle" | safeCSS }}">
+  <div class="restructured-footer-copy">
     &copy; {{ now.Format "2006" }} <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+  </div>
+  <div class="restructured-footer-info">
+    Built with <a href="https://gohugo.io/">Hugo</a>
+    <a href="https://github.com/fisodd/hugo-restructured/">Restructured</a>
   </div>
 </footer>

@@ -1,6 +1,11 @@
 {{ define "main" }}
 {{ partial "body-fetchedge.html" . }}
 <article style="{{ $.Scratch.Get "ReSTedgeStyle" | safeCSS }}">
+<section>
+  <div>
+    {{ .Content }}
+  </div>
+</section>
 {{ range .Data.Pages }}
   {{ .Render "summary" }}
 {{ end }}

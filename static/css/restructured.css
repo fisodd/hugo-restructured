@@ -290,12 +290,9 @@ not(blockquote) .line-block {
 
 .line-block .line-block {
 	/* indented block within a block, only need the indent... */
-	margin: 0;
+	margin: 0 0 0 1.5rem;
 	border: none;
 	padding: 0;
-	margin-top: 0;
-	margin-bottom: 0;
-	margin-left: 1.5em;
 }
 
 blockquote {
@@ -634,7 +631,7 @@ header > nav > ul {
 }
 header > nav > ul > li {
 	float: left;
-	padding-right: 2rem;
+	padding-right: 0rem;
 	letter-spacing: 0.125em;
 }
 header > nav::after {
@@ -687,6 +684,18 @@ hr.marginless,
 footer hr,
 article header hr {
 	margin: 0;
+}
+
+footer.restructured-footer > div.restructured-footer-copy {
+	float: left;
+}
+footer.restructured-footer > div.restructured-footer-info {
+	float: right;
+}
+footer.restructured-footer::after {
+	content: "";
+	display: block;
+	clear: both;
 }
 
 
