@@ -109,40 +109,6 @@ div.figure p.caption {
 /* reStructuredText settings                                                 */
 
 
-/* -- special classes ------------------------------------------------------- */
-
-
-img.align-left,
-div.align-left,
-object.align-left {
-	clear: left;
-	float: left;
-	margin-right: 1rem;
-}
-
-img.align-right,
-div.align-right,
-object.align-right {
-	clear: right;
-	float: right;
-	margin-left: 1rem;
-}
-
-img.align-center,
-div.align-center,
-object.align-center {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-div.titleless p.topic-title,
-div.titleless p.sidebar-title,
-div.titleless p.admonition-title {
-	display: none;
-}
-
-
 /* -- figures --------------------------------------------------------------- */
 
 div.figure {
@@ -191,6 +157,7 @@ p.sidebar-title {
 	padding-top: 0.5em;
 	font-weight: bold;
 }
+
 
 /* -- topics ---------------------------------------------------------------- */
 
@@ -296,7 +263,6 @@ not(blockquote) .line-block {
 }
 
 blockquote {
-	font-family: "Open Sans Condensed", Ariel, Helvetica, sans-serif;
 	margin: 0.5em 0rem 0.5em 0rem;
 	border: 1px solid #cccccc;
 	padding: 0.5em 0.5rem 0.5em 0.5rem;
@@ -326,26 +292,33 @@ blockquote.pull-quote {
 	position: relative;
 }
 blockquote.pull-quote:before {
-	font-family: "Open Sans", Ariel, Helvetica, sans-serif;
+	font-family: "Archivo Narrow", "Times New Roman", sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 12rem;
 	content: "\0201c";
-	font-size: 8rem;
 	color: #f2dede;
 	position: absolute;
 	left: -0.000em;
 	top: 0.0em;
 }
 blockquote.pull-quote:after {
-	font-family: "Open Sans", Ariel, Helvetica, sans-serif;
+	font-family: "Archivo Narrow", "Times New Roman", sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-style: normal;
+	font-size: 12rem;
 	content: "\0201d";
-	font-size: 8rem;
 	color: #f2dede;
 	position: absolute;
-	right: 0.250em;
+	right: 0.0000em;
 	bottom: -0.5em;
 }
 blockquote.pull-quote p {
 	display: block;
 	font-size: 1rem;
+	font-weight: normal;
+	font-style: normal;
 	color: #222222;
 }
 blockquote.pull-quote p:not(.attribution) {
@@ -372,14 +345,49 @@ pre {
 	background-color: #f8f8f4;
 	overflow: auto;
 	overflow-y: hidden;  /* fixes display issues on Chrome browsers */
-	font-family: "Roboto Mono", monospace;
+	font-family: "Inconsolata", monospace;
 }
+code,
 tt {
-	font-family: "Roboto Mono", monospace;
+	font-family: "Inconsolata", monospace;
 }
 
 pre.address {
 	margin: 0 1rem 0 0;
+}
+
+
+/* -- special classes ------------------------------------------------------- */
+
+
+img.align-left,
+div.align-left,
+object.align-left {
+	clear: left;
+	float: left;
+	margin-right: 1rem;
+}
+
+img.align-right,
+div.align-right,
+object.align-right {
+	clear: right;
+	float: right;
+	margin-left: 1rem;
+}
+
+img.align-center,
+div.align-center,
+object.align-center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.titleless p.topic-title,
+div.titleless p.sidebar-title,
+div.titleless p.admonition-title {
+	display: none;
 }
 
 
@@ -596,8 +604,6 @@ acronym {
 
 header,
 footer {
-	font-family: "Open Sans Condensed", Ariel, Helvetica, sans-serif;
-
 	background: #900000; /* expect this to be overridden in config */
 	color: #fefefe;      /* expect this to be overridden in config */
 }
