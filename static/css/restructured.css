@@ -38,47 +38,6 @@ article header {
 
 
 /*****************************************************************************/
-/* Simple 'responsive' behavior                                              */
-
-html {
-	font-size: 10px;
-}
-
-@media (min-width: 400px) {
-	html {
-		font-size: 12px;
-	}
-}
-
-@media (min-width: 800px) {
-	html {
-		font-size: 16px;
-	}
-}
-
-@media (min-width: 900px) {
-	article {
-		padding-left: 10%;
-	}
-	section,
-	article header {
-		width: 88%;
-		padding: 0.5em 0.5rem 0.5em 0.5rem;
-	}
-}
-
-@media (min-width: 1300px) {
-	article {
-		padding-left: 20%;
-	}
-	section,
-	article header {
-		width: 75%;
-	}
-}
-
-
-/*****************************************************************************/
 /* Basic Sizes                                                               */
 
 /* Larger type for most stuff */
@@ -304,8 +263,8 @@ blockquote.pull-quote:before {
 	content: "\0201c";
 	color: #f2dede;
 	position: absolute;
-	left: -0.000em;
-	top: 0.0em;
+	left: 0;
+	top: 0;
 }
 blockquote.pull-quote:after {
 	font-family: "Archivo Narrow", "Times New Roman", sans-serif;
@@ -316,7 +275,7 @@ blockquote.pull-quote:after {
 	content: "\0201d";
 	color: #f2dede;
 	position: absolute;
-	right: 0.0000em;
+	right: 0;
 	bottom: -0.5em;
 }
 blockquote.pull-quote p {
@@ -349,7 +308,7 @@ pre {
 	padding: 0.5em 0.5rem 0.5em 0.5rem;
 	background-color: #f8f8f4;
 	overflow: auto;
-	overflow-y: hidden;  /* fixes display issues on Chrome browsers */
+	overflow-y: hidden;
 	font-family: "Inconsolata", monospace;
 }
 code,
@@ -516,6 +475,48 @@ div.body td {
 	text-align: left;
 }
 
+dd p {
+	margin-top: 0px;
+}
+
+dd ul,
+dd table {
+	margin-bottom: 1em;
+}
+
+dd {
+	margin-top: 0.25em;
+	margin-bottom: 1em;
+	margin-left: 2rem;
+}
+
+dl {
+	margin-bottom: 1em;
+}
+
+dl.docutils dt {
+	font-weight: bold
+}
+
+dt:target,
+.highlighted {
+	background-color: #fbe54e;
+}
+
+dl.glossary dt {
+	font-weight: bold;
+	font-size: 1.125em;
+}
+
+.field-list ul {
+	margin: 0;
+	padding-left: 1em;
+}
+
+.field-list p {
+	margin: 0;
+}
+
 .field-list ul {
 	padding-left: 1rem;
 }
@@ -544,48 +545,6 @@ ol.lowerroman {
 
 ol.upperroman {
 	list-style: upper-roman;
-}
-
-dl {
-	margin-bottom: 1em;
-}
-
-dd p {
-	margin-top: 0px;
-}
-
-dd ul,
-dd table {
-	margin-bottom: 1em;
-}
-
-dd {
-	margin-top: 0.25em;
-	margin-bottom: 1em;
-	margin-left: 2rem;
-}
-
-dl.docutils dt {
-	font-weight: bold
-}
-
-dt:target,
-.highlighted {
-	background-color: #fbe54e;
-}
-
-dl.glossary dt {
-	font-weight: bold;
-	font-size: 1.125em;
-}
-
-.field-list ul {
-	margin: 0;
-	padding-left: 1em;
-}
-
-.field-list p {
-	margin: 0;
 }
 
 .optional {
@@ -891,3 +850,46 @@ code .operator { color: #666666 } /* .o */
 code .operator.word { color: #a848a8 } /* .ow */
 code .punctuation { color: #888888 } /* .p */
 code .text.whitespace { color: #a89028 } /* .w */
+
+
+/*****************************************************************************/
+/* Simple 'responsive' behavior                                              */
+
+html {
+	font-size: 10px;
+}
+
+@media (min-width: 400px) {
+	html {
+		font-size: 12px;
+	}
+}
+
+@media (min-width: 800px) {
+	html {
+		font-size: 16px;
+	}
+}
+
+@media (min-width: 900px) {
+	article {
+		padding-left: 10%;
+	}
+	section,
+	article header {
+		width: 88%;
+		padding: 0.5em 0.5rem 0.5em 0.5rem;
+	}
+}
+
+@media (min-width: 1300px) {
+	article {
+		padding-left: 20%;
+	}
+	section,
+	article header {
+		width: 75%;
+	}
+}
+
+
