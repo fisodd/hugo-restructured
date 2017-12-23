@@ -357,8 +357,15 @@ tt {
 	font-family: "Inconsolata", monospace;
 }
 
-pre.address {
-	margin: 0 1rem 0 0;
+table.docinfo pre.address {
+	/* Docutils uses PRE for addresses in bibliographic fields ... */
+	/* ... don't style these PRE's as above, leave as-is */
+	margin: inherit;
+	border: none;
+	padding: inherit;
+	background-color: inherit;
+	overflow: inherit;
+	font-family: inherit;
 }
 
 
