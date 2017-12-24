@@ -1,22 +1,17 @@
-/* Base CSS for theme
+/* Base CSS for Hugo Restructured theme
  * -- loosely derived from html4css1.css from Docutils
- *
- * ToDo:
- * -- wide <PRE> blocks in footnotes create elements wider than page
- *   -- not sure this is readily solved in CSS, but avoidable in reST...
  */
 
 
 /*****************************************************************************/
 /* Colors:
  * foreground: #222222
+ * Headers and Rubric: #a00000
  * background: #fefefe
  * background for sidebars: #f8f8f4
- * Borders: #cccccc, and #e4e4e4 for a ligher border
- * Yellow text: #fbe54e hsl(yellow/52, 96%, 65%)
- * Rubric: #a00000
- * System Message: #f2f2a6 (yellow, 75% saturation, 80% lightness)
- * ... or #f5f5a3 (80%sat, 80%light)
+ * Borders: #cccccc, and #e4e4e4 for a lighter border
+ * Yellow highlight: #fbe54e hsl(yellow/52, 96%, 65%)
+ * System Message: #f2f2a6 (yellow, 75% saturation, 80% lightness) and "red"
  */
 
 
@@ -79,42 +74,6 @@ div.figure {
 
 div.figure img {
 	object-fit: contain;
-}
-
-
-/* -- sidebars -------------------------------------------------------------- */
-
-div.sidebar,
-blockquote.sidebar {
-	margin: 0.5em 0rem 0.5em 1rem;
-	border: 1px solid #cccccc;
-	padding: 0 0.5rem 0 0.5rem;
-	background-color: #f8f8f4;
-	width: 40%;
-	float: right;
-}
-div.sidebar.narrow,
-blockquote.sidebar.narrow {
-	width: 20%;
-}
-div.sidebar.wide,
-blockquote.sidebar.wide {
-	width: 60%;
-}
-div.sidebar.align-left,
-blockquote.sidebar.align-left {
-	/* if pushed left, swap right/left margin values */
-	margin: 0.5em 1rem 0.5em 1rem;
-	float: left;
-}
-div.admonition.sidebar {
-	/* support a ":class: sidebar" for admonitions (to shrink them) */
-	margin: 0.5em 1rem 0.5em 0rem;
-}
-
-p.sidebar-title {
-	padding-top: 0.5em;
-	font-weight: bold;
 }
 
 
@@ -328,40 +287,6 @@ table.docinfo pre.address {
 }
 
 
-/* -- special classes ------------------------------------------------------- */
-
-
-img.align-left,
-div.align-left,
-object.align-left {
-	clear: left;
-	float: left;
-	margin-right: 1rem;
-}
-
-img.align-right,
-div.align-right,
-object.align-right {
-	clear: right;
-	float: right;
-	margin-left: 1rem;
-}
-
-img.align-center,
-div.align-center,
-object.align-center {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-div.titleless p.topic-title,
-div.titleless p.sidebar-title,
-div.titleless p.admonition-title {
-	display: none;
-}
-
-
 /* -- footnotes ------------------------------------------------------------- */
 
 .footnote-reference {
@@ -406,14 +331,14 @@ table.docutils td {
 	border-bottom: 1px solid #e4e4e4;
 }
 
-/* Ensure there are no borders for the Docutils-generated tables */
+/* Ensure there are no borders for the field-list tables */
 table.field-list,
 table.field-list td,
 table.field-list th {
-	border: 0 !important;
+	border: none;
 }
-/* ... and Docutils generates footnotes as a table */
-/* but since we border the notes, we don't set "none" for the outer table */
+
+/* Similarly, the tables used to format footnotes need no borders */
 table.footnote td,
 table.footnote th {
 	border: none;
@@ -426,6 +351,85 @@ table.citation td {
 th {
 	text-align: left;
 	padding-right: 0.5rem;
+}
+
+
+/* -- sidebars -------------------------------------------------------------- */
+
+div.sidebar,
+table.sidebar,
+blockquote.sidebar {
+	margin: 0.5em 0rem 0.5em 1rem;
+	border: 1px solid #cccccc;
+	padding: 0 0.5rem 0 0.5rem;
+	background-color: #f8f8f4;
+	width: 40%;
+	float: right;
+}
+div.sidebar.narrow,
+table.sidebar.narrow,
+blockquote.sidebar.narrow {
+	width: 20%;
+}
+div.sidebar.wide,
+table.sidebar.wide,
+blockquote.sidebar.wide {
+	width: 60%;
+}
+div.sidebar.align-left,
+table.sidebar.align-left,
+blockquote.sidebar.align-left {
+	/* if pushed left, swap right/left margin values */
+	margin: 0.5em 1rem 0.5em 1rem;
+	float: left;
+}
+div.admonition.sidebar {
+	/* support a ":class: sidebar" for admonitions (to shrink them) */
+	margin: 0.5em 1rem 0.5em 0rem;
+}
+
+p.sidebar-title {
+	padding-top: 0.5em;
+	font-weight: bold;
+}
+
+div.titleless p.topic-title,
+div.titleless p.sidebar-title,
+div.titleless p.admonition-title {
+	display: none;
+}
+
+blockquote.pull-quote {
+	/* For pullquotes placed in sidebars, override the sidebar padding */
+	/* in order to still keep the pull-quote level of padding */
+	padding: 1em 5rem 1em 5rem;
+}
+
+
+/* -- alignment classes ----------------------------------------------------- */
+
+img.align-left,
+div.align-left,
+object.align-left {
+	clear: left;
+	float: left;
+	margin-right: 1rem;
+}
+
+img.align-right,
+div.align-right,
+object.align-right {
+	clear: right;
+	float: right;
+	margin-left: 1rem;
+}
+
+img.align-center,
+div.align-center,
+object.align-center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 
