@@ -357,8 +357,8 @@ th {
 /* -- sidebars -------------------------------------------------------------- */
 
 div.sidebar,
-table.sidebar,
-blockquote.sidebar {
+blockquote.sidebar,
+table.docutils.footnote.sidebar {
 	margin: 0.5em 0rem 0.5em 1rem;
 	border: 1px solid #cccccc;
 	padding: 0 0.5rem 0 0.5rem;
@@ -367,18 +367,18 @@ blockquote.sidebar {
 	float: right;
 }
 div.sidebar.narrow,
-table.sidebar.narrow,
-blockquote.sidebar.narrow {
+blockquote.sidebar.narrow,
+table.docutils.footnote.sidebar.narrow {
 	width: 20%;
 }
 div.sidebar.wide,
-table.sidebar.wide,
-blockquote.sidebar.wide {
+blockquote.sidebar.wide,
+table.docutils.footnote.sidebar.wide {
 	width: 60%;
 }
 div.sidebar.align-left,
-table.sidebar.align-left,
-blockquote.sidebar.align-left {
+blockquote.sidebar.align-left,
+table.docutils.footnote.sidebar.align-left {
 	/* if pushed left, swap right/left margin values */
 	margin: 0.5em 1rem 0.5em 1rem;
 	float: left;
