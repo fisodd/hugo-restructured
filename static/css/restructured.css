@@ -780,6 +780,7 @@ h6 a:link {
 /* Formats for <CODE> elements (inline) */
 
 /* lovelace */
+pre > code { background: inherit; } /* keep existing background if Markdown */
 code  { background: #ffffff; } /*  */
 code .comment { color: #888888; font-style: italic } /* .c */
 code .comment.hashbang { color: #287088; font-style: italic } /* .ch */
