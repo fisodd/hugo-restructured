@@ -426,7 +426,8 @@ object.align-right {
 
 img.align-center,
 div.align-center,
-object.align-center {
+object.align-center,
+div.align-center img {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
