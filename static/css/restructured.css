@@ -8,7 +8,6 @@
  * foreground: #222222
  * Headers and Rubric: #a00000
  * background: #fefefe
- * background for sidebars: #f8f8f4
  * Borders: #cccccc, and #e4e4e4 for a lighter border
  * Yellow highlight: #fbe54e hsl(yellow/52, 96%, 65%)
  * System Message: #f2f2a6 (yellow, 75% saturation, 80% lightness) and "red"
@@ -69,7 +68,7 @@ div.figure {
 	margin: 0.5em 0rem 0.5em 0rem;
 	border: 1px solid #cccccc;
 	padding: 0.5em 0.5rem 0.5em 0.5rem;
-	background-color: #f8f8f4;
+	background-color: #fefefe;
 }
 
 div.figure img {
@@ -159,23 +158,24 @@ div.body p.centered {
 
 .system-message {
 	background-color: #f2f2a6;
-	padding: 0.25em 0.25rem 0.25em 0.25rem;
+	padding: 0.5em 0.5rem 0.5em 0.5rem;
 	border: 3px solid red;
 }
 
 not(blockquote) .line-block {
 	margin: 0.5em 0rem 0.5em 0rem;
-	border: 1px solid #cccccc;
-	padding: 0.5em 0.5rem 0.5em 0.5rem;
-	background-color: #f8f8f4;
-	display: block;
 	margin-top: 1em;
 	margin-bottom: 1em;
+	/* ACA: combine the above into one line... */
+	border: 1px solid #cccccc;
+	padding: 0.5em 0.5rem 0.5em 0.5rem;
+	background-color: #fefefe;
+	display: block;
 }
 
 .line-block .line-block {
 	/* indented block within a block, only need the indent... */
-	margin: 0 0 0 1.5rem;
+	margin: 0 0 0 1.5rem;	/* ACA: 1.5rem or 1.0 or 2.0rem? */
 	border: none;
 	padding: 0;
 }
@@ -184,7 +184,7 @@ blockquote {
 	margin: 0.5em 0rem 0.5em 0rem;
 	border: 1px solid #cccccc;
 	padding: 0.5em 0.5rem 0.5em 0.5rem;
-	background-color: #f8f8f4;
+	background-color: #fefefe;
 }
 blockquote blockquote {
 	/* nested blockquotes, only need a bit of the border box... */
@@ -192,13 +192,6 @@ blockquote blockquote {
 	border-left: 1px solid #cccccc;
 }
 
-blockquote.highlights {
-	background-color: #fefefe;
-}
-
-blockquote.epigraph {
-	background-color: #fefefe;
-}
 blockquote.epigraph p:not(.attribution) {
 	font-size: 1.5rem;
 	font-style: oblique;
@@ -207,7 +200,6 @@ blockquote.epigraph p:not(.attribution) {
 
 blockquote.pull-quote {
 	padding: 1em 5rem 1em 5rem;
-	background-color: #fefefe;
 	font-weight: bold;
 	font-style: oblique;
 	font-size: 2rem;
@@ -265,7 +257,6 @@ pre {
 	margin: 0.5em 0rem 0.5em 0rem;
 	border: 1px solid #cccccc;
 	padding: 0.5em 0.5rem 0.5em 0.5rem;
-	background-color: #f8f8f4;
 	overflow: auto;
 	overflow-y: hidden;
 	font-family: "Inconsolata", monospace;
@@ -299,8 +290,8 @@ table.docutils.citation,
 table.docutils.footnote {
 	margin: 0.5em 0rem 0.5em 0rem;
 	border: 1px solid #cccccc;
-	padding: 1em 0.5rem 1em 0.5rem;
-	background-color: #f8f8f4;
+	padding: 0.5em 0.5rem 0.5em 0.5rem;
+	background-color: #fefefe;
 	width: 100%;
 }
 
@@ -361,8 +352,8 @@ blockquote.sidebar,
 table.docutils.footnote.sidebar {
 	margin: 0.5em 0rem 0.5em 1rem;
 	border: 1px solid #cccccc;
-	padding: 0 0.5rem 0 0.5rem;
-	background-color: #f8f8f4;
+	padding: 0.5em 0.5rem 0.5em 0.5rem;
+	background-color: #fefefe;
 	width: 40%;
 	float: right;
 }
@@ -380,7 +371,7 @@ div.sidebar.align-left,
 blockquote.sidebar.align-left,
 table.docutils.footnote.sidebar.align-left {
 	/* if pushed left, swap right/left margin values */
-	margin: 0.5em 1rem 0.5em 1rem;
+	margin: 0.5em 1rem 0.5em 0rem;
 	float: left;
 }
 div.admonition.sidebar {
@@ -400,9 +391,9 @@ div.titleless p.admonition-title {
 }
 
 blockquote.pull-quote {
-	/* For pullquotes placed in sidebars, override the sidebar padding */
-	/* in order to still keep the pull-quote level of padding */
+	/* For pullquotes placed in sidebars, restore original stylings... */
 	padding: 1em 5rem 1em 5rem;
+	background: #fefefe;
 }
 
 
@@ -411,7 +402,6 @@ blockquote.pull-quote {
 img.align-left,
 div.align-left,
 object.align-left {
-	clear: left;
 	float: left;
 	margin-right: 1rem;
 }
@@ -419,7 +409,6 @@ object.align-left {
 img.align-right,
 div.align-right,
 object.align-right {
-	clear: right;
 	float: right;
 	margin-left: 1rem;
 }
@@ -710,7 +699,7 @@ h6 a:link {
 /* formats for <PRE class="code"> */
 
 /* lovelace */
-.code  { background: #ffffff; } /*  */
+.code  { background: #fefefe; } /*  */
 .code .comment { color: #888888; font-style: italic } /* .c */
 .code .comment.hashbang { color: #287088; font-style: italic } /* .ch */
 .code .comment.multiline { color: #888888; font-style: italic } /* .cm */
@@ -785,8 +774,7 @@ h6 a:link {
 /* Formats for <CODE> elements (inline) */
 
 /* lovelace */
-pre > code { background: inherit; } /* keep existing background if Markdown */
-code  { background: #ffffff; } /*  */
+code  { background: #fefefe; } /*  */
 code .comment { color: #888888; font-style: italic } /* .c */
 code .comment.hashbang { color: #287088; font-style: italic } /* .ch */
 code .comment.multiline { color: #888888; font-style: italic } /* .cm */
