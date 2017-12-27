@@ -542,6 +542,10 @@ ol.upperroman {
 	list-style: upper-roman;
 }
 
+ul.bulletless {
+	list-style-type: none;
+}
+
 .optional {
 	font-size: 1.25em;
 }
