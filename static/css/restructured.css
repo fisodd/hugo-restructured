@@ -543,7 +543,9 @@ ol.upperroman {
 }
 
 ul.bulletless {
+	/* list w/o bullets and reduced indent */
 	list-style-type: none;
+	padding-left: 1em;
 }
 
 .optional {
