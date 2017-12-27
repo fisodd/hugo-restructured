@@ -5,18 +5,17 @@
 
 /*****************************************************************************/
 /* Colors:
- * foreground: #222222
+ *
+ * Foreground: #222222
  * Headers and Rubric: #a00000
- * background: #fefefe
- * Borders: #cccccc, and #e4e4e4 for a lighter border
- * Yellow highlight: #fbe54e hsl(yellow/52, 96%, 65%)
- * System Message: #f2f2a6 (yellow, 75% saturation, 80% lightness) and "red"
+ * Background: #fefefe
+ * Borders: #cccccc (and #e4e4e4 for a lighter border on tables)
  */
 
 
 
 /*****************************************************************************/
-/* Very basic settings                                                       */
+/* Some basic settings                                                       */
 
 @charset "UTF-8";
 
@@ -24,42 +23,33 @@ body {
 	font-family: "Open Sans", Ariel, Helvetica, sans-serif;
 }
 
-section,
-article header {
+
+/*****************************************************************************/
+/* reStructuredText settings                                                 */
+
+
+/* -- Overall --------------------------------------------------------------- */
+
+article > section,
+article > header {
 	background-color: #fefefe;
 	color: #222222;
 }
 
-
-/*****************************************************************************/
-/* Basic Sizes                                                               */
-
-/* Larger type for most stuff */
-p,
-div.section > ol.simple > li,
-div.section > ul.simple > li {
-	/* Note: "ul.simple" are the non-intented bullet lists */
-	font-size: 1.5rem;
-	line-height: 1.5;
-}
-
-/* Keep type smaller for tightly formatted parts */
-li p,
-dd p,
-table p,
-blockquote p,
-table.footnote p,
-div.sidebar p,
-div.legend p,
-div.figure p.caption {
-	width: auto;
-	font-size: 1.0rem;
+dl.docutils,
+div.topic,
+div.legend,
+div.figure,
+div.sidebar,
+div.admonition,
+div.line-block,
+article > section pre,
+article > section table,
+article > section blockquote {
+	/* Certain elements are typeset densely, different from main text */
+	font-size: 0.75rem;
 	line-height: 1.25;
 }
-
-
-/*****************************************************************************/
-/* reStructuredText settings                                                 */
 
 
 /* -- figures --------------------------------------------------------------- */
@@ -86,7 +76,7 @@ div.topic {
 
 p.topic-title {
 	text-align: center;
-	font-size: 1.25rem;
+	font-size: 1.25em;
 	font-weight: bold;
 	margin-top: 1rem;
 }
@@ -157,25 +147,23 @@ div.body p.centered {
 /* -- quotes and messages --------------------------------------------------- */
 
 .system-message {
+	/* Yellow #f2f2a6 (yellow, 75% saturation, 80% lightness), and "red" */
 	background-color: #f2f2a6;
 	padding: 0.5em 0.5rem 0.5em 0.5rem;
 	border: 3px solid red;
 }
 
-not(blockquote) .line-block {
+*:not(blockquote) > div.line-block {
 	margin: 0.5em 0rem 0.5em 0rem;
-	margin-top: 1em;
-	margin-bottom: 1em;
-	/* ACA: combine the above into one line... */
 	border: 1px solid #cccccc;
 	padding: 0.5em 0.5rem 0.5em 0.5rem;
 	background-color: #fefefe;
 	display: block;
 }
 
-.line-block .line-block {
+div.line-block div.line-block {
 	/* indented block within a block, only need the indent... */
-	margin: 0 0 0 1.5rem;	/* ACA: 1.5rem or 1.0 or 2.0rem? */
+	margin: 0 0 0 1rem;
 	border: none;
 	padding: 0;
 }
@@ -192,8 +180,16 @@ blockquote blockquote {
 	border-left: 1px solid #cccccc;
 }
 
+/* Keep paragraphs from expanding blockquotes... */
+blockquote > p:first-child {
+	margin-top: 0;
+}
+blockquote > p:last-child {
+	margin-bottom: 0;
+}
+
 blockquote.epigraph p:not(.attribution) {
-	font-size: 1.5rem;
+	font-size: 1.25rem;
 	font-style: oblique;
 	color: #a00000;
 }
@@ -202,7 +198,7 @@ blockquote.pull-quote {
 	padding: 1em 5rem 1em 5rem;
 	font-weight: bold;
 	font-style: oblique;
-	font-size: 2rem;
+	font-size: 1.5rem;
 	color: #a00000;
 	position: relative;
 }
@@ -210,7 +206,7 @@ blockquote.pull-quote:before {
 	font-family: "Archivo Narrow", "Times New Roman", sans-serif;
 	font-style: normal;
 	font-weight: normal;
-	font-size: 12rem;
+	font-size: 8rem;
 	content: "\0201c";
 	color: #f2dede;
 	position: absolute;
@@ -222,7 +218,7 @@ blockquote.pull-quote:after {
 	font-style: normal;
 	font-weight: normal;
 	font-style: normal;
-	font-size: 12rem;
+	font-size: 8rem;
 	content: "\0201d";
 	color: #f2dede;
 	position: absolute;
@@ -231,7 +227,7 @@ blockquote.pull-quote:after {
 }
 blockquote.pull-quote p {
 	display: block;
-	font-size: 1rem;
+	font-size: 0.75rem;
 	font-weight: normal;
 	font-style: normal;
 	color: #222222;
@@ -240,7 +236,7 @@ blockquote.pull-quote p:not(.attribution) {
 	display: inline;
 	font-weight: bold;
 	font-style: oblique;
-	font-size: 2rem;
+	font-size: 1.5rem;
 	color: #a00000;
 }
 
@@ -282,6 +278,10 @@ table.docinfo pre.address {
 
 .footnote-reference {
 	vertical-align: super;
+	font-size: 0.75em;
+	line-height: normal;
+}
+.citation-reference {
 	font-size: 0.75em;
 	line-height: normal;
 }
@@ -355,6 +355,7 @@ table.docutils.footnote.sidebar {
 	padding: 0.5em 0.5rem 0.5em 0.5rem;
 	background-color: #fefefe;
 	width: 40%;
+	clear: right;
 	float: right;
 }
 div.sidebar.narrow,
@@ -372,6 +373,7 @@ blockquote.sidebar.align-left,
 table.docutils.footnote.sidebar.align-left {
 	/* if pushed left, swap right/left margin values */
 	margin: 0.5em 1rem 0.5em 0rem;
+	clear: left;
 	float: left;
 }
 div.admonition.sidebar {
@@ -402,6 +404,7 @@ blockquote.pull-quote {
 img.align-left,
 div.align-left,
 object.align-left {
+	clear: left;
 	float: left;
 	margin-right: 1rem;
 }
@@ -409,6 +412,7 @@ object.align-left {
 img.align-right,
 div.align-right,
 object.align-right {
+	clear: right;
 	float: right;
 	margin-left: 1rem;
 }
@@ -431,31 +435,27 @@ h3,
 h4,
 h5,
 h6 {
+	padding-top: 1em;
 	font-weight: bold;
 	color: #a00000;
 }
 h1 {
-	font-size: 2rem;
-	padding-top: 1em;
+	font-size: 1.5rem;
 }
 h2 {
-	font-size: 1.5rem;
-	padding-top: 1em;
+	font-size: 1.25rem;
 }
 h3 {
-	font-size: 1.25rem;
-	padding-top: 1em;
+	font-size: 1.0rem;
 }
 h4 {
-	font-size: 1.0rem;
-	padding-top: 1em;
+	font-size: 0.875rem;
 }
 h5 {
-	font-size: 0.875rem;
-	padding-top: 1em;
+	font-size: 0.75rem;
 }
 h6 {
-	font-size: 0.75rem;
+	font-size: 2rem;
 }
 
 
@@ -494,6 +494,7 @@ dl.docutils dt {
 
 dt:target,
 .highlighted {
+	/* Yellow highlight: #fbe54e hsl(yellow/52, 96%, 65%) */
 	background-color: #fbe54e;
 }
 
@@ -574,24 +575,12 @@ footer {
 }
 
 header {
-	padding-top: 1em;
 	padding-left: 5%;
 	padding-right: 5%;
 }
 
-footer {
-	clear: both;
-}
-
-div.top-banner > div.top-title {
-	font-size: 2rem;
-	font-weight: bold;
-	padding-top: 2em;
-	padding-bottom: 3em;
-	text-align: center;
-}
-
 header > nav {
+	font-size: 0.75rem;
 	padding-top: 2em;
 }
 header > nav > ul {
@@ -629,14 +618,8 @@ header > nav li > a.active:after {
 }
 
 header > nav a:link,
-header > nav a:visited,
-footer a:link,
-footer a:visited {
-	text-decoration: none;
-}
-header > nav a:link,
 header > nav a:visited {
-	font-size: 1.25rem;
+	text-decoration: none;
 }
 header > nav a {
 	display: block;
@@ -644,17 +627,28 @@ header > nav a {
 	text-transform: uppercase;
 }
 
-header > nav a img {
-	height: 5rem;
-	position: relative;
-	max-width: 100%;
-	top: -1.5rem;
+div.top-banner > div.top-title {
+	font-size: 1.5rem;
+	font-weight: bold;
+	padding-top: 2em;
+	padding-bottom: 3em;
+	text-align: center;
 }
 
 hr.marginless,
 footer hr,
 article header hr {
 	margin: 0;
+}
+
+footer {
+	font-size: 0.75rem;
+	clear: both;
+}
+
+footer a:link,
+footer a:visited {
+	text-decoration: none;
 }
 
 footer.restructured-footer > div.restructured-footer-copy {
@@ -850,18 +844,18 @@ code .text.whitespace { color: #a89028 } /* .w */
 /* Simple 'responsive' behavior                                              */
 
 html {
-	font-size: 10px;
+	font-size: 12px;
 }
 
 @media (min-width: 400px) {
 	html {
-		font-size: 12px;
+		font-size: 16px;
 	}
 }
 
 @media (min-width: 800px) {
 	html {
-		font-size: 16px;
+		font-size: 24px;
 	}
 }
 
@@ -869,8 +863,8 @@ html {
 	article {
 		padding-left: 10%;
 	}
-	section,
-	article header {
+	article > section,
+	article > header {
 		width: 88%;
 		padding: 0.5em 0.5rem 0.5em 0.5rem;
 	}
@@ -880,8 +874,8 @@ html {
 	article {
 		padding-left: 20%;
 	}
-	section,
-	article header {
+	article > section,
+	article > header {
 		width: 75%;
 	}
 }
