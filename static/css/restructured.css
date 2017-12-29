@@ -865,6 +865,40 @@ html {
 	}
 }
 
+@media (max-width: 899px) {
+	ul.responsive,
+	ul.responsive ul,
+	div.sidebar ul {
+		/* like bulletless: list w/o bullets and reduced indent */
+		list-style-type: none;
+		padding-left: 1em;
+	}
+
+	table.docutils.responsive,
+	table.docutils.responsive thead,
+	table.docutils.responsive tbody,
+	table.docutils.responsive th,
+	table.docutils.responsive td,
+	table.docutils.responsive tr {
+		display: block;
+	}
+	table.docutils.responsive th {
+		border-bottom: 1px solid #e4e4e4;
+	}
+	table.docutils.responsive th:first-child {
+		border-top: 1px solid #cccccc;
+		border-bottom: 1px solid #cccccc;
+	}
+	table.docutils.responsive td {
+		padding-left: 10%;
+	}
+	table.docutils.responsive td:first-child {
+		margin-top: 0.5em;
+		border-top: 1px solid #cccccc;
+		border-bottom: 1px solid #cccccc;
+	}
+}
+
 @media (min-width: 900px) {
 	article {
 		padding-left: 10%;
