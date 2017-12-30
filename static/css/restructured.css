@@ -34,6 +34,7 @@ article > section,
 article > header {
 	background-color: #fefefe;
 	color: #222222;
+	padding-bottom: 1rem;
 }
 
 dl.docutils,
@@ -435,6 +436,7 @@ h3,
 h4,
 h5,
 h6 {
+	margin-top: 0;
 	padding-top: 1em;
 	font-weight: bold;
 	color: #a00000;
@@ -455,7 +457,7 @@ h5 {
 	font-size: 0.75rem;
 }
 h6 {
-	font-size: 2rem;
+	font-size: 0.5rem;
 }
 
 
