@@ -1,6 +1,6 @@
 {{ define "main" }}
 {{ $dateFormat := default "January 2 2006" (index .Site.Params "date_format") }}
-{{ partial "body-fetchedge.html" . }}
+{{ partial "find-edge.html" . }}
 <article style="{{ $.Scratch.Get "ReSTedgeStyle" | safeCSS }}">
   <header>
     {{ with .Title }}{{ . | markdownify }}{{ end }}{{ with .Params.author }}, by {{ . }}{{ end }}, <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format $dateFormat }}</time>

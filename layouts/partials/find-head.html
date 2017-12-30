@@ -12,9 +12,9 @@
   {{ $.Scratch.Set "ReSTstyleBackground" (printf "background: url('%s'); background-size: cover;" $hero_image) }}
 {{ end }}
 
-{{ $hero_grade := .Param "hero_grade" | default .Site.Params.hero_grade }}
-{{ if $hero_grade }}
-  {{ $.Scratch.Set "ReSTstyleBackground" (printf "%s;" $hero_grade) }}
+{{ $hero_shade := .Param "hero_shade" | default .Site.Params.hero_shade }}
+{{ if $hero_shade }}
+  {{ $.Scratch.Set "ReSTstyleBackground" (printf "%s;" $hero_shade) }}
 {{ end }}
 
 {{ $style_spec := (printf "%s %s" ($.Scratch.Get "ReSTstyleBackground") ($.Scratch.Get "ReSTstyleColor")) }}
