@@ -28,6 +28,9 @@ Also
 
 - Pages begin with a splash of color with support for hero images or background gradients
 
+All of these features and more are demonstrated in
+[the live demo](https://hugo-restructured-demo.netlify.com/post/hugo-and-rest/).
+
 ![Screenshot](https://github.com/fisodd/hugo-restructured/raw/master/images/tn.png)
 
 
