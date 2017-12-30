@@ -1,0 +1,20 @@
+baseURL = "http://hugo-restructured-demo.netlify.com/"
+languageCode = "en-us"
+title = "Example.org"
+
+SectionPagesMenu = "main"
+
+theme = "hugo-restructured"
+
+[params]
+   #author = "William Shakespeare"
+
+   # Red gradients for pages
+   hero_color = "white"
+   hero_shade = "background: #870000; background: linear-gradient(to right, #190a05, #870000);" # https://uigradients.com/#TheStrain
+
+   edge_shade = "background: #fdfcfb; background: linear-gradient(to bottom, #fdfcfb, #e2d1c3);" # https://webgradients.com -- 029 Everlasting Sky
+
+   # Uncomment to use images for 'Hero' and/or 'Edge'
+   #hero_image = "/post/using-rest/rst.png"
+   #edge_image = "/post/using-rest/rst-rotated.png"
