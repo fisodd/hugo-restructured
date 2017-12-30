@@ -13,7 +13,7 @@ Acknowlegements and Attributions
 ################################
 
 Every project, no matter how lonely, builds upon the efforts of others.
-Hugo Restructured is no different.
+:title:`Hugo Restructured` is no different.
 
 .. pull-quote::
 
@@ -25,7 +25,7 @@ Hugo Restructured is no different.
 Acknowlegements
 ***************
 
-Hugo Restructured started as an attempt to understand
+:title:`Hugo Restructured` started as an attempt to understand
 the very useful
 `Ananke Theme <https://themes.gohugo.io/gohugo-theme-ananke/>`__.
 
@@ -34,13 +34,12 @@ has done us all a great favor with his careful development of this theme.
 Ananke proved to be one of the better teaching tools I have found
 for understanding how templates actually work in Hugo.
 
-I am sure that if one squints at Hugo Structured the right way,
-one could make out the bare bones of Ananke where I started
-on the path that has lead to Hugo Restructured.
+I am sure that if one squints at :title:`Hugo Restructured` the right way,
+one could make out the bare bones of Ananke where this started.
 However, not much if any of the original remains;
 by the time I was done swapping out the Tachyons.io foundation
 and swapping in reStructuredText
-and then tackling the various random ideas,
+and then tackling various random ideas,
 just about every file was ripped open, pulled apart,
 and then reassembled |--| sometimes in a very different way.
 
