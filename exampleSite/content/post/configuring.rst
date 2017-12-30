@@ -154,7 +154,7 @@ the ``hero_color`` can be set to something dark for readable contrast.
 
 .. code::
 
-   hero_color = "darkgray"
+   hero_color = "darkred"
 
 
 Edge Shade

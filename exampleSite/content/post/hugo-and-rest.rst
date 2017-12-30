@@ -9,8 +9,8 @@ weight: 1
 
 ---
 
-Hugo and reStructured Text
-##########################
+Hugo and reStructuredText
+#########################
 
 Hugo supports reStructuredText as one of the
 `additional formats

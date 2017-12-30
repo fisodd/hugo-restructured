@@ -19,7 +19,7 @@ Using reStructuredText in Hugo
 ##############################
 
 Hugo does support
-`reStructuredText <http://docutils.sourceforge.org/rst.html>`__
+`reStructuredText <http://docutils.sourceforge.net/rst.html>`__
 as one of the
 `additional formats <https://gohugo.io/content-management/formats/#additional-formats-through-external-helpers>`__
 in Hugo.
