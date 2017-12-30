@@ -12,7 +12,7 @@
     {{ $section_name := index (.Site.Params.mainSections) 0 }}
     <div class="topic-overview">
        {{ with .Site.GetPage "section" $section_name }}
-          <h1>Recent Activity in {{ .Title }}</h1>
+       <h1>Recent Activity in <a href="{{ .URL }}">{{ .Title }}</a></h1>
         {{ end }}
         {{ range (first 3 $section) }}
             {{ .Render "summary" }}
