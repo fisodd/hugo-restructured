@@ -1,13 +1,13 @@
 {{ define "main" }}
-{{ partial "find-edge.html" . }}
+{{- partial "find-edge.html" . -}}
 <article style="{{ $.Scratch.Get "ReSTedgeStyle" | safeCSS }}">
-<section>
-  <div>
+<section class="list-content">
+  <div class="list-content">
     {{ .Content }}
   </div>
 </section>
-{{ range .Data.Pages }}
+{{ range .Data.Pages -}}
   {{ .Render "summary" }}
-{{ end }}
+{{- end -}}
 </article>
 {{ end }}

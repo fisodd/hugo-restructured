@@ -1,21 +1,30 @@
-{{ $.Scratch.Set "ReSTstyleColor" "" }}
-{{ $hero_color := .Param "hero_color" | default .Site.Params.hero_color }}
-{{ if $hero_color }}
-  {{ $.Scratch.Set "ReSTstyleColor" (printf "color: %s" $hero_color) }}
-{{ end }}
-{{ $style_color := $.Scratch.Get "ReSTstyleColor" }}
-
-{{ $.Scratch.Set "ReSTstyleBackground" "" }}
-{{ $hero_image := .Param "hero_image" | default .Site.Params.hero_image }}
-{{ if $hero_image }}
-  {{ $hero_image := (trim $hero_image "/") | absURL }}
-  {{ $.Scratch.Set "ReSTstyleBackground" (printf "background: url('%s'); background-size: cover;" $hero_image) }}
-{{ end }}
-
-{{ $hero_shade := .Param "hero_shade" | default .Site.Params.hero_shade }}
-{{ if $hero_shade }}
-  {{ $.Scratch.Set "ReSTstyleBackground" (printf "%s;" $hero_shade) }}
-{{ end }}
-
-{{ $style_spec := (printf "%s %s" ($.Scratch.Get "ReSTstyleBackground") ($.Scratch.Get "ReSTstyleColor")) }}
-{{ $.Scratch.Set "ReSTheadStyle" $style_spec }}
+{{- $.Scratch.Set "ReSTstyleColor" "" -}}
+{{- $hero_color := .Param "hero_color" | default .Site.Params.hero_color -}}
+{{- if $hero_color -}}
+  {{- $.Scratch.Set "ReSTstyleColor" (printf "color: %s; " $hero_color) -}}
+{{- end -}}
+{{- $style_color := $.Scratch.Get "ReSTstyleColor" -}}
+{{- $.Scratch.Set "ReSTstyleBackground" "" -}}
+{{- $hero_image := .Param "hero_image" -}}
+{{- if $hero_image -}}
+  {{- $hero_image := (trim $hero_image "/") | absURL -}}
+  {{- $.Scratch.Set "ReSTstyleBackground" (printf "background: url('%s'); background-size: cover;" $hero_image) -}}
+{{- else -}}
+  {{- $hero_shade := .Param "hero_shade" -}}
+  {{- if $hero_shade -}}
+    {{- $.Scratch.Set "ReSTstyleBackground" $hero_shade -}}
+  {{- else -}}
+    {{- $hero_image := .Site.Params.hero_image -}}
+    {{- if $hero_image -}}
+      {{- $hero_image := (trim $hero_image "/") | absURL -}}
+      {{- $.Scratch.Set "ReSTstyleBackground" (printf "background: url('%s'); background-size: cover;" $hero_image) -}}
+    {{- else -}}
+      {{- $hero_shade := .Site.Params.hero_shade -}}
+      {{- if $hero_shade -}}
+        {{- $.Scratch.Set "ReSTstyleBackground" $hero_shade -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $style_spec := (printf "%s%s" ($.Scratch.Get "ReSTstyleColor") ($.Scratch.Get "ReSTstyleBackground")) -}}
+{{- $.Scratch.Set "ReSTheadStyle" $style_spec -}}

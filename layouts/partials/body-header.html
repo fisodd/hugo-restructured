@@ -1,26 +1,19 @@
-{{ partial "find-head.html" . }}
+{{- partial "find-head.html" . -}}
 <header style="{{ $.Scratch.Get "ReSTheadStyle" | safeCSS }}">
-  <nav>
-    <ul>
-      <li>
-        <a href="{{ .Site.BaseURL }}"{{ if .IsHome }} class="active"{{ end }}>
-          {{ .Site.Title }}
-        </a>
-	{{ $currentNode := . }}
-        {{ if .Site.Menus.main }}
-          {{ range .Site.Menus.main }}
-	  <li>
-            <a href="{{ .URL }}" title="{{ .Name }} page"{{ if $currentNode.IsMenuCurrent "main" . }} class="active"{{ end }}>
-              {{ .Name }}
-            </a>
-          </li>
-          {{ end }}
-        {{ end }}
-      </ul>
+  <nav class="top-menu">
+    <ul class="top-menu-list">
+      <li><a href="{{ .Site.BaseURL }}"{{ if .IsHome }} class="active"{{ end }}>{{ .Site.Title }}</a></li>
+      {{- $currentNode := . -}}
+      {{- if .Site.Menus.main -}}
+        {{- range .Site.Menus.main }}
+        <li><a href="{{ .URL }}" title="{{ .Name }} page"{{ if $currentNode.IsMenuCurrent "main" . }} class="active"{{ end }}>{{ .Name }}</a></li>
+        {{- end }}
+      {{- end }}
+    </ul>
   </nav>
   <div class="top-banner">
-    {{ with .Title }}
+    {{- with .Title -}}
     <div class="top-title">{{ . | markdownify }}</div>
-    {{ end }}
+    {{- end -}}
   </div>
 </header>

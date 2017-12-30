@@ -1,10 +1,23 @@
-{{ $.Scratch.Set "ReSTedgeStyle" "" }}
-{{ $edge_image := .Param "edge_image" | default .Site.Params.edge_image }}
-{{ if $edge_image }}
-  {{ $edge_image := (trim $edge_image "/") | absURL }}
-  {{ $.Scratch.Set "ReSTedgeStyle" (printf "background-image: url('%s');" $edge_image) }}
-{{ end }}
-{{ $edge_shade := .Param "edge_shade" | default .Site.Params.edge_shade }}
-{{ if $edge_shade }}
-  {{ $.Scratch.Set "ReSTedgeStyle" $edge_shade }}
-{{ end }}
+{{- $.Scratch.Set "ReSTedgeStyle" "" -}}
+{{- $edge_image := .Param "edge_image" -}}
+{{- if $edge_image -}}
+  {{- $edge_image := (trim $edge_image "/") | absURL -}}
+  {{- $.Scratch.Set "ReSTedgeStyle" (printf "background-image: url('%s');" $edge_image) -}}
+{{- else -}}
+  {{- $edge_shade := .Param "edge_shade" -}}
+  {{- if $edge_shade -}}
+    {{- $.Scratch.Set "ReSTedgeStyle" $edge_shade -}}
+  {{- else -}}
+    {{- $edge_image := .Site.Params.edge_image -}}
+    {{- if $edge_image -}}
+      {{- $edge_image := (trim $edge_image "/") | absURL -}}
+      {{- $.Scratch.Set "ReSTedgeStyle" (printf "background-image: url('%s');" $edge_image) -}}
+    {{- else -}}
+      {{- $edge_shade := .Site.Params.edge_shade -}}
+      {{- if $edge_shade -}}
+        {{- $.Scratch.Set "ReSTedgeStyle" $edge_shade -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+

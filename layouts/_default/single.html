@@ -1,12 +1,12 @@
 {{ define "main" }}
-{{ $dateFormat := default "January 2 2006" (index .Site.Params "date_format") }}
-{{ partial "find-edge.html" . }}
+{{- $dateFormat := default "January 2 2006" (index .Site.Params "date_format") -}}
+{{- partial "find-edge.html" . -}}
 <article style="{{ $.Scratch.Get "ReSTedgeStyle" | safeCSS }}">
-  <header>
+  <header class="single-header">
     {{ with .Title }}{{ . | markdownify }}{{ end }}{{ with .Params.author }}, by {{ . }}{{ end }}, <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format $dateFormat }}</time>
     <hr>
   </header>
-  <section>
+  <section class="single-content">
     {{ .Content }}
   </section>
 </article>
