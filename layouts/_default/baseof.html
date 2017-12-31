@@ -3,6 +3,7 @@
   <head>
     <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
     <link rel="canonical" href="{{ .Permalink }}">
+    {{ partial "head-internals.html" . }}
     {{ partial "head-style.html" . }}
     {{ partial "head-meta.html" . }}
     {{ partial "head-rss.html" . }}
