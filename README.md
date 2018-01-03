@@ -17,7 +17,7 @@ Including
 
 - [Images](https://hugo-restructured-demo.netlify.com/post/using-rest/#images) and [figures](https://hugo-restructured-demo.netlify.com/post/hugo-and-rest/#figures), both right- and left-aligned
 - [Footnotes](https://hugo-restructured-demo.netlify.com/post/using-rest/#footnotes) and [citations](https://hugo-restructured-demo.netlify.com/post/using-rest/#citations)
-- [Pull-quotes](https://hugo-restructured-demo.netlify.com/post/hugo-and-rest/#pull-quote), and [epigraphs](https://hugo-restructured-demo.netlify.com/post/using-rest/#epigraphs)
+- [Pull-quotes](https://hugo-restructured-demo.netlify.com/post/hugo-and-rest/#pull-quote), and [epigraphs](https://hugo-restructured-demo.netlify.com/post/hugo-and-rest/#epigraphs)
 - [Sidebars](https://hugo-restructured-demo.netlify.com/post/using-rest/#sidebars) (implemented in narrow, standard, and wide forms)
 - [Admonitions](https://hugo-restructured-demo.netlify.com/post/hugo-and-rest/#admonitions)
 and topics, notably topics containing a [table of contents](https://hugo-restructured-demo.netlify.com/post/configuring/#contents)
