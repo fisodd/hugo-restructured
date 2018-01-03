@@ -15,14 +15,14 @@ Features
 
 Including
 
-- [Images](http://docutils.sourceforge.net/docs/ref/rst/directives.html#image) and [figures](http://docutils.sourceforge.net/docs/ref/rst/directives.html#figure), both right- and left-aligned
-- [Footnotes](http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#footnotes) and [citations](http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#citations)
-- [Pull-quotes](http://docutils.sourceforge.net/docs/ref/rst/directives.html#pull-quote), and [epigraphs](http://docutils.sourceforge.net/docs/ref/rst/directives.html#epigraph)
-- [Sidebars](http://docutils.sourceforge.net/docs/ref/rst/directives.html#sidebar) (implemented in narrow, standard, and wide forms)
-- [Admonitions](http://docutils.sourceforge.net/docs/ref/rst/directives.html#admonitions)
-and [topics](http://docutils.sourceforge.net/docs/ref/rst/directives.html#topic), notably [table of contents topics](http://docutils.sourceforge.net/docs/ref/rst/directives.html#table-of-contents)
-- Support for [Math](http://docutils.sourceforge.net/docs/ref/rst/directives.html#math) and [Code](http://docutils.sourceforge.net/docs/ref/rst/directives.html#code) directives
-- [Tables](http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#tables), including [list-tables](http://docutils.sourceforge.net/docs/ref/rst/directives.html#list-table), as well as [field lists](http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#field-lists), including [bibliographic fields](http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#bibliographic-fields)
+- [Images](https://hugo-restructured-demo.netlify.com/post/using-rest/#images) and [figures](https://hugo-restructured-demo.netlify.com/post/hugo-and-rest/#figures), both right- and left-aligned
+- [Footnotes](https://hugo-restructured-demo.netlify.com/post/using-rest/#footnotes) and [citations](https://hugo-restructured-demo.netlify.com/post/using-rest/#citations)
+- [Pull-quotes](https://hugo-restructured-demo.netlify.com/post/hugo-and-rest/#pull-quote), and [epigraphs](https://hugo-restructured-demo.netlify.com/post/using-rest/#epigraphs)
+- [Sidebars](https://hugo-restructured-demo.netlify.com/post/using-rest/#sidebars) (implemented in narrow, standard, and wide forms)
+- [Admonitions](https://hugo-restructured-demo.netlify.com/post/hugo-and-rest/#admonitions)
+and topics, notably topics containing a [table of contents](https://hugo-restructured-demo.netlify.com/post/configuring/#contents)
+- Support for [inline Math](https://hugo-restructured-demo.netlify.com/post/using-rest/#math) and [Code directives](https://hugo-restructured-demo.netlify.com/post/using-rest/#code) directives
+- [Tables](https://hugo-restructured-demo.netlify.com/post/using-rest/#tables), including reStructuredText's alternative markup: [list-tables](http://docutils.sourceforge.net/docs/ref/rst/directives.html#list-table), [field lists](http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#field-lists), and [bibliographic fields](http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#bibliographic-fields)
 
 Also
 
@@ -69,7 +69,9 @@ Hugo recognizes files ending with a ".rst" suffix as
 and will call out to the [docutils](http://docutils.sourceforge.net/)
 python package to process these files.
 
-example: hugo new content/post/first-post.rst
+example:
+
+    $ hugo new content/post/first-post.rst
 
 To learn more about reStructuredText markup, start with
 [a reStructuredText Primer](http://docutils.sourceforge.net/docs/user/rst/quickstart.html).
