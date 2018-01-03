@@ -36,6 +36,8 @@ OK.  So what?...
 reStructuredText Demo
 *********************
  
+.. _figures:
+
 .. figure:: Metal_movable_type.jpg
    :width: 100%
    :figwidth: 33%
@@ -164,6 +166,8 @@ Rather than live with several different sets of implementations
 across several layers of the Hugo stack,
 take advantage of a supported input markup
 that was designed to do all of this within one well thought out system.
+
+.. _admonitions:
 
 .. tip::
    :class: sidebar narrow align-left

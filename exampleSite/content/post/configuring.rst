@@ -30,6 +30,8 @@ edge_shade = "background: linear-gradient(to bottom, white, gray)"
 
 +++
 
+.. _contents:
+
 .. contents::
    :class: sidebar
 

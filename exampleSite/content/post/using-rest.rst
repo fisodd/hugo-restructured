@@ -35,6 +35,8 @@ covered in that demonstration page.
 reStructuredText Background
 ***************************
 
+.. _images:
+
 .. figure:: /img/rst-rotated.png
    :align: left
 
@@ -53,6 +55,8 @@ that was designed from the start to handle far more than a simple blog page.
 .. class:: sidebar narrow
 
 .. [*] This is a symbolic note, implemented as a sidenote.
+
+.. _citations:
 
 For example, BlackFriday and other markdown processors have added
 a form of footnotes to the original syntax.
@@ -205,7 +209,8 @@ should be well handled.
    to compare with the finished results.
    A copy of the raw markup that was used for this page is available
    within the
-   `source repository <https://github.com/fisodd/hugo-restructured/>`__.
+   `source repository
+   <https://raw.githubusercontent.com/fisodd/hugo-restructured/master/exampleSite/content/post/using-rest.rst>`__.
 
 There are a few areas where this shift of focus and emphasis
 can be greatly assisted if the authors respect a few details
@@ -235,7 +240,7 @@ Specifically, for the figure directives
 it may help to specify a ``:figwidth:`` option as a percentage, e.g. 30%,
 as this allows the figure to scale the image's display size
 to match the relative size of the column in the user's browser display.
-Note: Specifying a fixed pixel width for figures
+Note: Specifying a fixed number of pixels as the width for figures
 can lead to problems as browsers adapt to different window sizes.
 
 In addition, providing an additional ``:width:`` option,
@@ -246,6 +251,8 @@ Without this additional ``:width:`` option,
 images may spill out beyond the figure to either obscure the other
 content or run off the far edge of the page.
 
+
+.. _sidebars:
 
 Sidebars
 ========
@@ -285,6 +292,8 @@ to instead become floating elements beside the main body of content.
 
    This is a narrow sidebar.
    Potentially useful if the content is skinny.
+
+   .. _math:
 
    ===== ====
    Num   Word
@@ -420,6 +429,8 @@ with the longer class names that by default show in the comments.
 
 Something like the following Unix script can be useful to get suitable CSS:
 
+.. _code:
+
 .. code:: Bash
 
    #!/bin/bash
@@ -447,7 +458,7 @@ Hugo Restructured's Classes
 ===========================
 
 Along the way there have been a few potentially useful classes
-added to Hero Restructured's CSS.
+added to :title:`Hugo Restructured`'s CSS.
 
 Classes for Sidebars
 --------------------
@@ -549,6 +560,8 @@ in a
 and will use this responsive form in those cases.
 
 
+.. _tables:
+
 Responsive Tables
 -----------------
 
@@ -598,6 +611,8 @@ that perhaps may help.
 .. the dots below create a horizontal line to separate the notes
 
 ....
+
+.. _footnotes:
 
 .. [#] This is a numeric note,
    implemented as a traditional footnote
