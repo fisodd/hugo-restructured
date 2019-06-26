@@ -39,6 +39,18 @@ All of these features and more are demonstrated in
 Installation is much like any other Hugo theme.
 
 
+### Prerequisites
+
+Obviously you'll need a working [Hugo](https://gohugo.io/) environment.
+
+In addition, to handle the reStructuredText
+you'll need [Docutils](http://docutils.sourceforge.net/)
+(which relies on [Pygments](http://pygments.org/)
+for the colored syntax highlighting in code displays).
+Both of these are readily available through the usual Python methods
+(e.g. "pip install docutils").
+
+
 ### Getting started
 
 Inside the folder of your Hugo site run:
@@ -49,7 +61,7 @@ Inside the folder of your Hugo site run:
 For more information read
 [install and use themes](https://gohugo.io/themes/installing-and-using-themes/)
 or begin with Hugo's
-[get started](//gohugo.io/overview/installing/) help page.
+[get started](https://gohugo.io/overview/installing/) help page.
 
 
 ### The config file
